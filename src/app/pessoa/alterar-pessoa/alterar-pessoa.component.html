@@ -1,0 +1,23 @@
+<h3>
+    Alterar Pessoa
+  </h3>
+    <form (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="nome">Nome</label>
+    <input type="text" class="form-control" id="nome" [(ngModel)]="pessoa.nome" name="nome">
+  
+  </div>
+  <div class="form-group">
+    <label for="name">CPF</label>
+    <input type="text" class="form-control" id="cpf" [(ngModel)]="pessoa.cpf" name="cpf">
+  
+  </div>
+  <div class="form-group">
+    <label for="name">Data Nascimento</label>
+    <input type="text" class="form-control" id="data_nascimento" [(ngModel)]="pessoa.data_nascimento" name="data_nascimento">
+  </div>
+  
+  <button style='margin-right:16px' class="btn btn-success">Salvar</button>
+  <button style='margin-right:16px' (click)="list()" class="btn btn-success">Voltar</button>
+  
+  </form>

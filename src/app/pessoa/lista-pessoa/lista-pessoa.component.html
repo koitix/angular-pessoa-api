@@ -1,0 +1,32 @@
+  
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2>Lista Pessoas</h2>
+    </div>
+    <div class="panel-body">
+      <table id="example" class="table table-striped table-bordered table-sm row-border hover" cellspacing="0" width="100%">
+
+        <thead>
+          <tr>
+            <th >Nome</th>
+            <th >CPF</th>
+            <th >Data Nascimento</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pessoa of pessoas | async">
+            <td>{{pessoa.nome}}</td>
+            <td>{{pessoa.cpf}}</td>
+            <td>{{pessoa.data_nascimento}}</td>
+            
+              <td><button style='margin-right:16px' (click)="removerPessoa(pessoa.id)" class="btn btn-danger">Remover</button>
+                <button style='margin-right:16px' (click)="alterarPessoa(pessoa.id)" class="btn btn-success" style="margin-left: 10px">Alterar</button>
+              </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+

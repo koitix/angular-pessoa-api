@@ -1,0 +1,25 @@
+<h3>Nova Pessoa</h3>
+<div [hidden]="submmited"></div>
+<form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="nome"> Nome</label>
+        <input type="text" class="form-control" id="nome" name="nome" required [(ngModel)]="pessoa.nome">
+    </div>
+
+    <div class="form-group">
+        <label for="name">CPF</label>
+        <input type="text" class="form-control" id="cpf" required [(ngModel)]="pessoa.cpf" name="cpf">
+      </div>
+  
+      <div class="form-group">
+        <label for="name">Data Nascimento</label>
+        <input type="date" class="form-control" id="data_nascimento" required [(ngModel)]="pessoa.data_nascimento" name="data_nascimento">
+      </div>
+
+      <!-- <div class="p-col-12">
+        <label for="contatos">Contatos</label>
+        <app-pessoa-cadastro-contato [contatos]="pessoa.contatos"></app-pessoa-cadastro-contato>
+      </div> -->
+
+      <button class="btn btn-success">Submit</button>
+</form>
