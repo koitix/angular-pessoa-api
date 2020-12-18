@@ -7,19 +7,19 @@
     </div>
 
     <div class="form-group">
-        <label for="name">CPF</label>
+        <label for="cpf">CPF</label>
         <input type="text" class="form-control" id="cpf" required [(ngModel)]="pessoa.cpf" name="cpf">
       </div>
   
       <div class="form-group">
-        <label for="name">Data Nascimento</label>
-        <input type="date" class="form-control" id="data_nascimento" required [(ngModel)]="pessoa.data_nascimento" name="data_nascimento">
+        <label for="data_nascimento">Data Nascimento</label>
+        <input class="form-control" id="data_nascimento" placeholder="dd-mm-yyyy" required [(ngModel)]="pessoa.data_nascimento" name="data_nascimento">
       </div>
 
-      <!-- <div class="p-col-12">
+       <!-- <div class="form-group">
         <label for="contatos">Contatos</label>
-        <app-pessoa-cadastro-contato [contatos]="pessoa.contatos"></app-pessoa-cadastro-contato>
-      </div> -->
+        <app-contato-pessoa [contatos]="pessoa.contatos"></app-contato-pessoa>
+      </div>  -->
 
       <button class="btn btn-success">Submit</button>
 </form>

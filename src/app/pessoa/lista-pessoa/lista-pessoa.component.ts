@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ApiResponse } from '../../api.response';
+import { PessoaService } from '../../service/pessoa.service';
 import { Observable } from 'rxjs';
-import { ApiResponse } from 'src/app/model/api.response';
-import { PessoaService } from 'src/app/service/pessoa.service';
 
 @Component({
   selector: 'app-lista-pessoa',

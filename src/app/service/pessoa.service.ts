@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ApiResponse } from '../model/api.response';
-import { PessoaModel } from '../model/pessoa.model';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { Pessoa } from '../core/model';
+import { ApiResponse } from '../api.response';
 
 @Injectable({
   providedIn: 'root'
@@ -23,15 +23,15 @@ export class PessoaService {
   	  return this.http.get<ApiResponse>(this.pessoas_url + "listar-todos");
 	}
 
-	cadastrarPessoa(pessoa: PessoaModel): Observable<PessoaModel> {
-		return this.http.post<PessoaModel>(this.pessoas_url+"/sem-contrato", pessoa);
+	cadastrarPessoa(pessoa: Pessoa): Observable<Pessoa> {
+		return this.http.post<Pessoa>(this.pessoas_url+"/sem-contrato", pessoa);
 	  }
 
-	buscarPorCodigo(id: number): Observable<PessoaModel> {
-		return this.http.get<PessoaModel>(`${this.pessoas_url}/${id}`);
+	buscarPorCodigo(id: number): Observable<Pessoa> {
+		return this.http.get<Pessoa>(`${this.pessoas_url}/${id}`);
 	  }
 
-	AlterarPessoa(pessoa: PessoaModel,id:any): Observable<ApiResponse> {
+	AlterarPessoa(pessoa: Pessoa,id:any): Observable<ApiResponse> {
 		return this.http.put<ApiResponse>(`${this.pessoas_url}/${id}`, pessoa);
 	  }
 

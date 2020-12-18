@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AlterarPessoaComponent } from './pessoa/alterar-pessoa/alterar-pessoa.component';
 import { CadastroPessoaComponent } from './pessoa/cadastro-pessoa/cadastro-pessoa.component';
 import { ListaPessoaComponent } from './pessoa/lista-pessoa/lista-pessoa.component';
+import { CommonModule } from '@angular/common';
 
 const routes: Routes = [
   { path: '', redirectTo: 'pessoas', pathMatch: 'full' },
@@ -15,7 +16,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes),CommonModule,
+    RouterModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

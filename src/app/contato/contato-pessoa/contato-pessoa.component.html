@@ -1,0 +1,53 @@
+<div class="form-group">
+    <div class="com-md-2">
+      <button label="Novo" type="button" class="btn btn-success" (click)="prepararNovoContato()">Novo </button>
+    </div>
+    <div class="p-col-12">
+        <table class="table table-striped table-bordered table-sm row-border hover" cellspacing="0"> 
+            <ng-template pTemplate="header">
+            <tr>
+                <th>Nome</th>
+                <th>E-mail</th>
+                <th>Telefone</th>
+                <th>Ações</th>
+            </tr>
+        </ng-template>
+
+        <ng-template let-contato let-rowIndex="rowIndex">
+            <tr>
+
+                <td>{{ contato.nome }}</td>
+                <td>{{ contato.email }}</td>
+                <td>{{ contato.telefone }}</td>
+                <td>
+                    <button type="button" style='margin-right:16px' label="Alterar" class="btn btn-danger" (click)="prepararEdicaoContato(contato, rowIndex)">Alterar</button>  
+                    <button type="button" style='margin-right:16px' label="Excluir" class="btn btn-primary" (click)="removerContato(rowIndex)">Remover</button>
+                </td>
+            </tr>
+        </ng-template>
+        </table >
+    </div>
+  
+    <form #frmContato="ngForm" (ngSubmit)="confirmarContato(frmContato)">
+      <div class="p-col-12 p-fluid">
+        <label>Nome</label>
+  
+        <input class="form-control" type="text" name="nome" required [(ngModel)]="contato.nome" #contatoNome="ngModel"/>
+      </div>
+  
+      <div class="form-group">
+          <label for="email">E-mail</label>
+          <input class="form-control" name="email" required [(ngModel)]="contato.email" #contatoEmail="ngModel"/>
+        </div>
+  
+        <div class="form-group">
+            <label for="telefone">Telefone</label>
+            <input class="form-control" name="telefone" [(ngModel)]="contato.telefone" #contatoDataNascimento="ngModel">
+        </div>
+  
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary" label="Confirmar" [disabled]="frmContato.invalid">Adicionar</button>
+        </div>
+    </form>
+</div>
+  

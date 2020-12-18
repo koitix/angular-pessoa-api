@@ -1,5 +1,6 @@
-export class ContatoModel {
-    id: number;
+
+export class Contato {
+  id: number;
     nome: string;
     email: string;
     telefone: string;
@@ -14,3 +15,12 @@ export class ContatoModel {
         this.telefone = telefone;
     }
   }
+  
+  export class Pessoa {
+    id: number;
+    nome: string;
+    cpf : string;
+    data_nascimento: Date;
+    contatos = new Array<Contato>();
+  }
+  

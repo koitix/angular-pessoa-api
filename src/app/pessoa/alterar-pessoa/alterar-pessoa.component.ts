@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ApiResponse } from 'src/app/model/api.response';
-import { PessoaModel } from 'src/app/model/pessoa.model';
-import { PessoaService } from 'src/app/service/pessoa.service';
+import { PessoaService } from '../../service/pessoa.service';
+import { ApiResponse } from '../../api.response';
+import { Pessoa } from '../../core/model';
 
 @Component({
   selector: 'app-alterar-pessoa',
@@ -13,14 +13,14 @@ import { PessoaService } from 'src/app/service/pessoa.service';
 export class AlterarPessoaComponent implements OnInit {
 
   id: number;
-  pessoa: PessoaModel;
+  pessoa: Pessoa;
   apiResponse:ApiResponse;
 
   constructor(private route: ActivatedRoute,private router: Router,
     private pessoaService: PessoaService) { }
 
   ngOnInit() {
-    this.pessoa = new PessoaModel();
+    this.pessoa = new Pessoa();
 
     this.id = this.route.snapshot.params['id'];
     this.pessoaService.buscarPorCodigo(this.id)
@@ -33,7 +33,7 @@ export class AlterarPessoaComponent implements OnInit {
   onSubmit() {
     this.pessoaService.AlterarPessoa( this.pessoa,this.id)
       .subscribe(data => console.log(data), error => console.log(error));
-    this.pessoa = new PessoaModel();
+    this.pessoa = new Pessoa();
     this.router.navigate(['/pessoas']);
     }
 
